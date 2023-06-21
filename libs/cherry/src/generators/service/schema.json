@@ -7,12 +7,25 @@
     "name": {
       "type": "string",
       "description": "",
-      "$default": {
-        "$source": "argv",
-        "index": 0
-      },
+      "default": "my-service",
       "x-prompt": "What name would you like to use?"
+    },
+    "host": {
+      "type": "string",
+      "description": "",
+      "default": "localhost",
+      "x-prompt": "What name host?"
+    },
+    "port": {
+      "type": "string",
+      "description": "",
+      "default": "3000",
+      "x-prompt": "What port?"
     }
   },
-  "required": ["name"]
+  "required": [
+    "name",
+    "host",
+    "port"
+  ]
 }

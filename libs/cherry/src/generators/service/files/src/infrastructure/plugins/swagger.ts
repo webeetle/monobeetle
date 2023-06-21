@@ -7,11 +7,11 @@ export default fp(async (fastify) => {
   await fastify.register(fastifySwagger, {
     swagger: {
       info: {
-        title: 'Mio Catalog API',
+        title: '<%= name %> API',
         description: '',
         version: '0.0.1'
       },
-      host: process.env.OPENAPI_HOST,
+      host: `${process.env.HOST}:${process.env.PORT}`,
       basePath: process.env.OPENAPI_BASE_URL,
       schemes: ['https', 'http'],
       consumes: ['application/json'],
