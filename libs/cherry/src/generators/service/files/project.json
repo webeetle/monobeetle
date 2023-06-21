@@ -1,0 +1,110 @@
+{
+  "name": "<%= name %>",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/<%= name %>/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "apps/<%= name %>/src/main.ts",
+        "tsConfig": "apps/<%= name %>/tsconfig.app.json",
+        "assets": [{ "input": "apps/<%= name %>/src/assets", "glob": "*.*", "output": "/apps/<%= name %>/src/assets" }],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "generateLockfile": true,
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "<%= name %>:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "<%= name %>:build:development"
+        },
+        "production": {
+          "buildTarget": "<%= name %>:build:production"
+        }
+      }
+    },
+    "db:init": {
+      "dependsOn": [
+        {
+          "projects": "self",
+          "target": "db:migrate:reset"
+        },
+        {
+          "projects": "self",
+          "target": "db:migrate:latest"
+        }
+      ],
+      "command": "echo 'initialized db'"
+    },
+    "db:migrate:reset": {
+      "command": "knex migrate:rollback --knexfile=apps/<%= name %>/src/knexfile.ts --all"
+    },
+    "db:migrate:latest": {
+      "command": "knex migrate:latest --knexfile=apps/<%= name %>/src/knexfile.ts"
+    },
+    "build-docker": {
+      "command": "docker build -f apps/hab-organizations-service/Docker/Dockerfile . -t dockerregistry.fastbee.systems/habeetat-organizations-service",
+      "configurations": {
+        "development": {
+          "command": "cp apps/hab-organizations-service/.env.development .env && docker build -f apps/hab-organizations-service/Docker/Dockerfile . -t dockerregistry.fastbee.systems/habeetat-organizations-service"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/<%= name %>/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/<%= name %>/jest.config.ts",
+        "runInBand": true,
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "docker-build": {
+      "dependsOn": ["build"],
+      "command": "docker build -f apps/<%= name %>/Dockerfile . -t <%= name %>"
+    }
+  },
+  "tags": []
+}

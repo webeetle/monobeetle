@@ -1,0 +1,19 @@
+{
+  "generators": {
+    "cherry-e2e-generator": {
+      "factory": "./src/generators/cherry-e2e-generator/generator",
+      "schema": "./src/generators/cherry-e2e-generator/schema.json",
+      "description": "cherry-e2e-generator generator"
+    },
+    "service": {
+      "factory": "./src/generators/service/generator",
+      "schema": "./src/generators/service/schema.json",
+      "description": "service generator"
+    },
+    "service-e2e": {
+      "factory": "./src/generators/service-e2e/generator",
+      "schema": "./src/generators/service-e2e/schema.json",
+      "description": "service-e2e generator"
+    }
+  }
+}
