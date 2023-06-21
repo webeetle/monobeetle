@@ -1,7 +1,6 @@
 import {build, prepareDB} from "../helper";
 import {deleteToDo, getAllTodos, getToDoById, insertToDo, updateToDo} from "../../core/usecases/todo/todoUseCases";
 import {ToDo, ToDoToInsert} from "../../core/entities/todo/ToDo";
-import {Knex} from "knex";
 import {FastifyInstance} from "fastify";
 
 
