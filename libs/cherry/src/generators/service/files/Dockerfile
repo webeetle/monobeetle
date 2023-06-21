@@ -12,13 +12,13 @@ ENV PORT=3000
 WORKDIR /app
 
 RUN addgroup --system monobeetle && \
-          adduser --system -G cherry cherry
+          adduser --system -G <%= name %> <%= name %>
 
-COPY dist/apps/cherry cherry
-RUN chown -R cherry:cherry .
+COPY dist/apps/<%= name %> <%= name %>
+RUN chown -R <%= name %>:<%= name %> .
 
 # You can remove this install step if you build with `--bundle` option.
 # The bundled output will include external dependencies.
-RUN npm --prefix cherry --omit=dev -f install
+RUN npm --prefix <%= name %> --omit=dev -f install
 
-CMD [ "node", "cherry" ]
+CMD [ "node", "<%= name %>" ]
