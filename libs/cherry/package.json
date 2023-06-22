@@ -1,6 +1,6 @@
 {
-  "name": "@monobeetle/cherry",
-  "version": "0.0.1",
+  "name": "@webeetle/nx-cherry",
+  "version": "0.0.8",
   "type": "commonjs",
   "generators": "./generators.json"
 }

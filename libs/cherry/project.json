@@ -15,7 +15,7 @@
           "libs/cherry/*.md",
           {
             "input": "./libs/cherry/src",
-            "glob": "**/!(*.ts)",
+            "glob": "**/*",
             "output": "./src"
           },
           {
