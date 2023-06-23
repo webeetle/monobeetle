@@ -16,18 +16,26 @@ To start the project, clone this repo and run
 npm install
 ```
 
+## Generate a new UI
+
+To generate a new react UI, run:
+
+```bash
+nx g @monobeetle/peach:ui
+```
+
 ## Generate a new Backend Service
 
 To generate a new backend service, run:
 
 ```bash
-nx g @monobeetle/cherry:service <service-name>
+nx g @monobeetle/cherry:service
 ```
 
 To generate a new e2e test for the service, run:
 
 ```bash
-nx g @monobeetle/cherry:service-e2e <service-name>
+nx g @monobeetle/cherry:service-e2e
 ```
 
 ## Thanks

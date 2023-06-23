@@ -1,6 +1,6 @@
 {
-  "name": "@monobeetle/peach",
-  "version": "0.0.1",
+  "name": "@webeetle/nx-react",
+  "version": "0.0.2",
   "type": "commonjs",
   "generators": "./generators.json"
 }

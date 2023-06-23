@@ -131,7 +131,7 @@ export async function uiGenerator(
         "options": {
           "buildTarget": options.name +":build",
           "hmr": true,
-          "port": options.port,
+          "port": parseInt(options.port),
           "host": options.host,
         },
         "configurations": {
@@ -155,7 +155,7 @@ export async function uiGenerator(
         "executor": "@nx/web:file-server",
         "options": {
           "buildTarget": options.name +":build",
-          "port": options.port,
+          "port": parseInt(options.port),
           "host": options.host,
         }
       },
