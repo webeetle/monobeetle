@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@monobeetle/cherry": ["libs/cherry/src/index.ts"]
+      "@monobeetle/cherry": ["libs/cherry/src/index.ts"],
+      "@monobeetle/peach": ["libs/peach/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
