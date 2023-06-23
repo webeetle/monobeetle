@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "Ui",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "",
+      "default": "ui",
+      "x-prompt": "What name would you like to use?"
+    },
+    "host": {
+      "type": "string",
+      "description": "",
+      "default": "localhost",
+      "x-prompt": "What name host?"
+    },
+    "port": {
+      "type": "string",
+      "description": "",
+      "default": "3001",
+      "x-prompt": "What port?"
+    }
+  },
+  "required": [
+    "name",
+    "host",
+    "port"
+  ]
+}
