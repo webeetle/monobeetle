@@ -130,7 +130,9 @@ export async function uiGenerator(
         "defaultConfiguration": "development",
         "options": {
           "buildTarget": options.name +":build",
-          "hmr": true
+          "hmr": true,
+          "port": options.port,
+          "host": options.host,
         },
         "configurations": {
           "development": {
@@ -152,7 +154,9 @@ export async function uiGenerator(
       "serve-static": {
         "executor": "@nx/web:file-server",
         "options": {
-          "buildTarget": options.name +":build"
+          "buildTarget": options.name +":build",
+          "port": options.port,
+          "host": options.host,
         }
       },
       "component-test": {

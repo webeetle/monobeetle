@@ -4,6 +4,11 @@
       "factory": "./src/generators/ui/generator",
       "schema": "./src/generators/ui/schema.json",
       "description": "ui generator"
+    },
+    "ui-e2e": {
+      "factory": "./src/generators/ui-e2e/generator",
+      "schema": "./src/generators/ui-e2e/schema.json",
+      "description": "ui-e2e generator"
     }
   }
 }
