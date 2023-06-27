@@ -76,7 +76,7 @@ export async function serviceGenerator(
         "defaultConfiguration": "production",
         "options": {
           "platform": "node",
-          "outputPath": "dist",
+          "outputPath": "dist/apps/"+options.name,
           "format": ["cjs"],
           "bundle": false,
           "main": "apps/"+options.name+"/src/main.ts",
